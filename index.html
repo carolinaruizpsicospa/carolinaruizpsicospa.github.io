@@ -437,194 +437,180 @@
     animate();
 </script>>
 
-<section id="viaje-sensorial" class="ritual-section">
+<section id="parche-desconexion" class="ritual-section">
     <div class="nebula-bg"></div>
 
     <div class="section-container">
         <header class="ritual-header">
-            <span class="pre-title">Tu experiencia en Carolina Ruiz</span>
-            <h2 class="main-title">EL VIAJE DE RITUALES</h2>
-            <p class="tagline">Selecciona el estado que tu alma necesita hoy.</p>
+            <span class="pre-title">Un concepto único en Manizales</span>
+            <h2 class="main-title">EL PARCHE DE DESCONEXIÓN</h2>
+            <p class="tagline">Elige tu nivel de parche: desde un reset rápido hasta una experiencia grupal total.</p>
         </header>
 
         <div class="rituales-carousel">
             <div class="glass-card">
                 <div class="card-aura"></div>
                 <div class="card-inner">
-                    <div class="ritual-symbol">◎</div>
-                    <h3>SILENCIO INTERIOR</h3>
-                    <p>Una inmersión en calma profunda para resetear el ruido mental.</p>
+                    <div class="ritual-symbol">💆🏻‍♀️</div>
+                    <h3>EXPERIENCIAS INDIVIDUALES</h3>
+                    <div class="price-list">
+                        <p>🔹 Masaje de espalda <span>$65k</span></p>
+                        <p>🔹 Espalda + Hidratación facial <span>$75k</span></p>
+                        <p>🔹 Pro: Espalda, manos, pies y facial <span>$90k</span></p>
+                        <p>🔹 VIP: Snack, vino y decoración <span>$100k</span></p>
+                        <p>🔹 Elite: Full Pack + Jacuzzi <span>$110k</span></p>
+                    </div>
                 </div>
             </div>
 
             <div class="glass-card active">
                 <div class="card-aura"></div>
                 <div class="card-inner">
-                    <div class="ritual-symbol">❃</div>
-                    <h3>ESENCIA EN EQUILIBRIO</h3>
-                    <p>Ritual de plenitud total. Brazos, corazón y espíritu en sintonía.</p>
-                    <span class="featured-badge">Más solicitado</span>
+                    <div class="ritual-symbol">🥂</div>
+                    <h3>PLAN BÁSICO PARCHE</h3>
+                    <p class="desc-parche">Masaje espalda y cuello, hidratación facial, decoración, snack, vino y jacuzzi.</p>
+                    <div class="main-price">$200.000</div>
+                    <span class="price-detail">Parche para 2 personas | 2 horas</span>
+                    <span class="featured-badge">El más pedido</span>
                 </div>
             </div>
 
             <div class="glass-card">
                 <div class="card-aura"></div>
                 <div class="card-inner">
-                    <div class="ritual-symbol">♾️</div>
-                    <h3>RENACE CON VINO</h3>
-                    <p>Hidratación sensorial acompañada de notas de vid y snacks selectos.</p>
+                    <div class="ritual-symbol">🧖‍♂️</div>
+                    <h3>PLAN PREMIUM</h3>
+                    <p class="desc-parche">Todo el Plan Básico + Masaje cuerpo completo (brazos, piernas y pies) + Soda o Michelada saborizada.</p>
+                    <div class="main-price">$280.000</div>
+                    <span class="price-detail">Parche para 2 personas | 2 horas</span>
                 </div>
+            </div>
+        </div>
+
+        <div class="parche-calculator">
+            <div class="calc-inner">
+                <h3>¿SON UN PARCHE MÁS GRANDE? 👥</h3>
+                <p>Calcula el valor exacto sumando personas (sin descuentos)</p>
+                <div class="calc-controls">
+                    <select id="tipo-plan">
+                        <option value="100000">Plan Básico ($100.000 p/p)</option>
+                        <option value="140000">Plan Premium ($140.000 p/p)</option>
+                    </select>
+                    <div class="counter">
+                        <button onclick="changeQty(-1)">-</button>
+                        <span id="qty">2</span>
+                        <button onclick="changeQty(1)">+</button>
+                    </div>
+                </div>
+                <div class="total-box">
+                    TOTAL: <span id="total-val">$200.000</span>
+                </div>
+                <button class="btn-relax" onclick="bookingParche()" style="width: 100%; margin-top: 20px;">RESERVAR PARCHE AHORA</button>
             </div>
         </div>
     </div>
 
     <div id="wa-orbe" class="whatsapp-orbe">
         <div class="orbe-waves"></div>
-        <a href="https://wa.me/573145780681?text=Hola%20Carolina,%20vengo%20de%20la%20web.%20Quiero%20iniciar%20mi%20viaje%20de%20bienestar." target="_blank">
+        <a href="https://wa.me/573145780681?text=Hola%20Carolina,%20quiero%20armar%20un%20parche%20en%20el%20psico-spa." target="_blank">
             <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.747-2.874-2.512-2.96-2.626-.087-.115-.708-.941-.708-1.795 0-.853.448-1.273.607-1.446.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.101-.177.211-.077.383.1.173.444.73.954 1.185.657.587 1.21.769 1.383.855.173.087.274.072.376-.043.101-.116.433-.506.548-.68.116-.173.231-.144.39-.087.158.058 1.011.477 1.184.564.173.087.289.129.332.202.043.073.043.423-.101.827z"/></svg>
-            <span>Agenda tu pausa</span>
+            <span>Lanzar Parche</span>
         </a>
     </div>
 
     <style>
-        .ritual-section {
-            position: relative;
-            min-height: 100vh;
-            padding: 100px 5%;
-            background: #0a0c0b;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
+        /* MANTENEMOS TUS ESTILOS BASE Y AÑADIMOS LOS NUEVOS */
+        .price-list { text-align: left; margin-top: 20px; }
+        .price-list p { border-bottom: 1px solid rgba(255,255,255,0.05); padding: 8px 0; display: flex; justify-content: space-between; }
+        .price-list span { color: var(--marker-color); font-weight: 800; }
+        
+        .main-price { font-size: 2.5rem; font-weight: 800; color: var(--marker-color); margin: 15px 0 5px; }
+        .price-detail { display: block; font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; }
+        .desc-parche { min-height: 80px; }
+
+        .parche-calculator {
+            margin-top: 60px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 40px;
+            padding: 40px;
+            border: 1px solid rgba(123, 114, 184, 0.3);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(10px);
         }
 
-        /* Fondo Animado Nebulosa */
-        .nebula-bg {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 20% 30%, rgba(123, 114, 184, 0.15) 0%, transparent 40%),
-                        radial-gradient(circle at 80% 70%, rgba(58, 99, 81, 0.15) 0%, transparent 40%);
-            filter: blur(80px);
-            animation: nebulaMove 20s infinite alternate ease-in-out;
-            z-index: 1;
-        }
+        .calc-controls { display: flex; gap: 20px; align-items: center; margin: 25px 0; }
+        #tipo-plan { flex: 1; padding: 15px; border-radius: 15px; background: rgba(0,0,0,0.3); color: white; border: 1px solid rgba(255,255,255,0.1); outline: none; }
+        
+        .counter { display: flex; align-items: center; gap: 15px; background: rgba(0,0,0,0.3); padding: 10px 20px; border-radius: 100px; }
+        .counter button { background: none; border: 1px solid white; color: white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
+        .counter span { font-weight: 800; font-size: 1.2rem; min-width: 20px; text-align: center; }
 
-        @keyframes nebulaMove {
-            0% { transform: scale(1) translate(0,0); }
-            100% { transform: scale(1.2) translate(5%, 5%); }
-        }
+        .total-box { font-size: 1.2rem; font-weight: 300; letter-spacing: 1px; text-align: center; }
+        #total-val { font-size: 2.5rem; font-weight: 800; color: var(--marker-color); display: block; }
 
+        /* Estilos base de tu ritual-section que ya tenías */
+        .ritual-section { position: relative; min-height: 100vh; padding: 100px 5%; background: #0a0c0b; overflow: hidden; display: flex; align-items: center; }
+        .nebula-bg { position: absolute; inset: 0; background: radial-gradient(circle at 20% 30%, rgba(123, 114, 184, 0.15) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(58, 99, 81, 0.15) 0%, transparent 40%); filter: blur(80px); animation: nebulaMove 20s infinite alternate ease-in-out; z-index: 1; }
         .section-container { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; }
-
         .ritual-header { text-align: center; margin-bottom: 80px; }
         .pre-title { font-family: 'Playfair Display', serif; font-style: italic; color: var(--purple-mist); letter-spacing: 3px; }
         .main-title { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; margin: 10px 0; letter-spacing: -2px; }
         .tagline { opacity: 0.6; font-weight: 300; letter-spacing: 1px; }
-
-        /* Tarjetas Estilo Glassmorphism Pro */
-        .rituales-carousel {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .glass-card {
-            position: relative;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 50px;
-            padding: 60px 40px;
-            text-align: center;
-            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-20px) scale(1.02);
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--marker-color);
-        }
-
-        .ritual-symbol { font-size: 3rem; color: var(--marker-color); margin-bottom: 25px; transition: 0.4s; }
-        .glass-card:hover .ritual-symbol { transform: rotate(15deg) scale(1.2); text-shadow: 0 0 20px var(--marker-color); }
-
-        .glass-card h3 { font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 20px; font-weight: 600; }
-        .glass-card p { font-weight: 300; opacity: 0.7; line-height: 1.8; font-size: 0.95rem; }
-
-        .featured-badge {
-            position: absolute; top: 20px; right: 40px;
-            font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px;
-            background: var(--marker-color); color: var(--dark);
-            padding: 5px 15px; border-radius: 20px; font-weight: 800;
-        }
-
-        /* Orbe WhatsApp Disruptivo */
-        .whatsapp-orbe {
-            position: fixed;
-            bottom: 40px;
-            left: -150px; /* Inicia fuera */
-            z-index: 1000;
-            transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
+        .rituales-carousel { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .glass-card { position: relative; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 50px; padding: 60px 40px; text-align: center; transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+        .glass-card.active { border-color: var(--purple-mist); background: rgba(123, 114, 184, 0.05); }
+        .ritual-symbol { font-size: 3rem; margin-bottom: 25px; }
+        .featured-badge { position: absolute; top: 20px; right: 40px; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; background: var(--marker-color); color: var(--dark); padding: 5px 15px; border-radius: 20px; font-weight: 800; }
+        
+        /* Orbe WhatsApp */
+        .whatsapp-orbe { position: fixed; bottom: 40px; left: -250px; z-index: 1000; transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .whatsapp-orbe.show { left: 40px; }
-
-        .whatsapp-orbe a {
-            display: flex; align-items: center; gap: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            padding: 10px 25px 10px 10px;
-            border-radius: 100px;
-            border: 1px solid rgba(181, 255, 218, 0.3);
-            color: white; text-decoration: none; font-weight: 600;
-            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .whatsapp-orbe svg {
-            width: 45px; height: 45px;
-            background: #25d366; fill: white;
-            padding: 10px; border-radius: 50%;
-            animation: pulseWa 2s infinite;
-        }
-
-        @keyframes pulseWa {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
+        .whatsapp-orbe a { display: flex; align-items: center; gap: 15px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); padding: 10px 25px 10px 10px; border-radius: 100px; border: 1px solid rgba(181, 255, 218, 0.3); color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .whatsapp-orbe svg { width: 45px; height: 45px; background: #25d366; fill: white; padding: 10px; border-radius: 50%; }
 
         @media (max-width: 768px) {
             .whatsapp-orbe.show { left: 50%; transform: translateX(-50%); width: max-content; }
-            .glass-card { padding: 40px 30px; }
+            .calc-controls { flex-direction: column; }
         }
     </style>
 
     <script>
-        // Animación de entrada del Orbe de WhatsApp tras 2 segundos de entrar en la sección
+        let personas = 2;
+
+        function changeQty(val) {
+            personas += val;
+            if (personas < 2) personas = 2;
+            document.getElementById('qty').innerText = personas;
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const planBase = parseInt(document.getElementById('tipo-plan').value);
+            const total = personas * planBase;
+            document.getElementById('total-val').innerText = `$${total.toLocaleString('es-CO')}`;
+        }
+
+        document.getElementById('tipo-plan').addEventListener('change', updateTotal);
+
+        function bookingParche() {
+            const planNombre = document.getElementById('tipo-plan').options[document.getElementById('tipo-plan').selectedIndex].text;
+            const total = document.getElementById('total-val').innerText;
+            const msg = encodeURIComponent(`¡Hola Carolina! ✨ Queremos un parche para ${personas} personas. Elegimos el ${planNombre}. El total es ${total}.`);
+            window.location.href = `https://wa.me/573145780681?text=${msg}`;
+        }
+
+        // Observer para el orbe
         const waOrbe = document.getElementById('wa-orbe');
-        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        waOrbe.classList.add('show');
-                    }, 2000);
+                    setTimeout(() => { waOrbe.classList.add('show'); }, 1000);
                 }
             });
-        }, { threshold: 0.5 });
-
-        observer.observe(document.getElementById('viaje-sensorial'));
-
-        // Efecto parallax suave en las tarjetas
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.glass-card');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            cards.forEach(card => {
-                card.style.transform = `translate(${(x - 0.5) * 10}px, ${(y - 0.5) * 10}px)`;
-            });
-        });
+        }, { threshold: 0.3 });
+        observer.observe(document.getElementById('parche-desconexion'));
     </script>
 </section>
 

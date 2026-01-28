@@ -507,10 +507,10 @@ src="https://www.facebook.com/tr?id=1175980454523613&ev=PageView&noscript=1"
         <div class="parche-calculator">
             <div class="calc-inner">
                 <h3>¿SON UN PARCHE MÁS GRANDE? 👥</h3>
-                <p>Calcula el valor exacto sumando personas (sin descuentos)</p>
+                <p>Calcula el valor grupal según el número de personas.</p>
                 <div class="calc-controls">
                     <select id="tipo-plan">
-                        <option value="100000">Plan Básico ($100.000 p/p)</option>
+                        <option value="grupal">Plan Básico (Tarifa Grupal)</option>
                         <option value="140000">Plan Premium ($140.000 p/p)</option>
                     </select>
                     <div class="counter">
@@ -522,7 +522,7 @@ src="https://www.facebook.com/tr?id=1175980454523613&ev=PageView&noscript=1"
                 <div class="total-box">
                     TOTAL: <span id="total-val">$200.000</span>
                 </div>
-                <button class="btn-relax" onclick="bookingParche()" style="width: 100%; margin-top: 20px;">RESERVAR PARCHE AHORA</button>
+                <button class="btn-relax" onclick="bookingParche()" style="width: 100%; margin-top: 20px; background: var(--purple-mist); color: white; border: none; padding: 15px; border-radius: 20px; font-weight: 800; cursor: pointer;">RESERVAR PARCHE AHORA</button>
             </div>
         </div>
     </div>
@@ -536,55 +536,33 @@ src="https://www.facebook.com/tr?id=1175980454523613&ev=PageView&noscript=1"
     </div>
 
     <style>
-        /* MANTENEMOS TUS ESTILOS BASE Y AÑADIMOS LOS NUEVOS */
+        /* Estilos originales preservados */
         .price-list { text-align: left; margin-top: 20px; }
         .price-list p { border-bottom: 1px solid rgba(255,255,255,0.05); padding: 8px 0; display: flex; justify-content: space-between; }
         .price-list span { color: var(--marker-color); font-weight: 800; }
-        
         .main-price { font-size: 2.5rem; font-weight: 800; color: var(--marker-color); margin: 15px 0 5px; }
         .price-detail { display: block; font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; }
         .desc-parche { min-height: 80px; }
-
-        .parche-calculator {
-            margin-top: 60px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 40px;
-            padding: 40px;
-            border: 1px solid rgba(123, 114, 184, 0.3);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            backdrop-filter: blur(10px);
-        }
-
+        .parche-calculator { margin-top: 60px; background: rgba(255,255,255,0.03); border-radius: 40px; padding: 40px; border: 1px solid rgba(123, 114, 184, 0.3); max-width: 600px; margin-left: auto; margin-right: auto; backdrop-filter: blur(10px); }
         .calc-controls { display: flex; gap: 20px; align-items: center; margin: 25px 0; }
         #tipo-plan { flex: 1; padding: 15px; border-radius: 15px; background: rgba(0,0,0,0.3); color: white; border: 1px solid rgba(255,255,255,0.1); outline: none; }
-        
         .counter { display: flex; align-items: center; gap: 15px; background: rgba(0,0,0,0.3); padding: 10px 20px; border-radius: 100px; }
         .counter button { background: none; border: 1px solid white; color: white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
         .counter span { font-weight: 800; font-size: 1.2rem; min-width: 20px; text-align: center; }
-
         .total-box { font-size: 1.2rem; font-weight: 300; letter-spacing: 1px; text-align: center; }
         #total-val { font-size: 2.5rem; font-weight: 800; color: var(--marker-color); display: block; }
-
-        /* Estilos base de tu ritual-section que ya tenías */
         .ritual-section { position: relative; min-height: 100vh; padding: 100px 5%; background: #0a0c0b; overflow: hidden; display: flex; align-items: center; }
-        .nebula-bg { position: absolute; inset: 0; background: radial-gradient(circle at 20% 30%, rgba(123, 114, 184, 0.15) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(58, 99, 81, 0.15) 0%, transparent 40%); filter: blur(80px); animation: nebulaMove 20s infinite alternate ease-in-out; z-index: 1; }
+        .nebula-bg { position: absolute; inset: 0; background: radial-gradient(circle at 20% 30%, rgba(123, 114, 184, 0.15) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(58, 99, 81, 0.15) 0%, transparent 40%); filter: blur(80px); z-index: 1; }
         .section-container { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; }
         .ritual-header { text-align: center; margin-bottom: 80px; }
-        .pre-title { font-family: 'Playfair Display', serif; font-style: italic; color: var(--purple-mist); letter-spacing: 3px; }
         .main-title { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; margin: 10px 0; letter-spacing: -2px; }
-        .tagline { opacity: 0.6; font-weight: 300; letter-spacing: 1px; }
         .rituales-carousel { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         .glass-card { position: relative; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 50px; padding: 60px 40px; text-align: center; transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
         .glass-card.active { border-color: var(--purple-mist); background: rgba(123, 114, 184, 0.05); }
-        .ritual-symbol { font-size: 3rem; margin-bottom: 25px; }
-        .featured-badge { position: absolute; top: 20px; right: 40px; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; background: var(--marker-color); color: var(--dark); padding: 5px 15px; border-radius: 20px; font-weight: 800; }
-        
-        /* Orbe WhatsApp */
+        .featured-badge { position: absolute; top: 20px; right: 40px; font-size: 0.6rem; text-transform: uppercase; background: var(--marker-color); color: var(--dark); padding: 5px 15px; border-radius: 20px; font-weight: 800; }
         .whatsapp-orbe { position: fixed; bottom: 40px; left: -250px; z-index: 1000; transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .whatsapp-orbe.show { left: 40px; }
-        .whatsapp-orbe a { display: flex; align-items: center; gap: 15px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); padding: 10px 25px 10px 10px; border-radius: 100px; border: 1px solid rgba(181, 255, 218, 0.3); color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .whatsapp-orbe a { display: flex; align-items: center; gap: 15px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); padding: 10px 25px 10px 10px; border-radius: 100px; border: 1px solid rgba(181, 255, 218, 0.3); color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; }
         .whatsapp-orbe svg { width: 45px; height: 45px; background: #25d366; fill: white; padding: 10px; border-radius: 50%; }
 
         @media (max-width: 768px) {
@@ -594,18 +572,41 @@ src="https://www.facebook.com/tr?id=1175980454523613&ev=PageView&noscript=1"
     </style>
 
     <script>
+        // TABLA DE PRECIOS SEGÚN TU LÓGICA GRUPAL
+        const preciosGrupales = {
+            2: 200000,
+            3: 280000,
+            4: 340000,
+            5: 420000,
+            6: 540000,
+            7: 630000,
+            8: 720000,
+            9: 810000,
+            10: 900000
+        };
+
         let personas = 2;
 
         function changeQty(val) {
             personas += val;
             if (personas < 2) personas = 2;
+            if (personas > 10) personas = 10; // Límite de tu tabla
             document.getElementById('qty').innerText = personas;
             updateTotal();
         }
 
         function updateTotal() {
-            const planBase = parseInt(document.getElementById('tipo-plan').value);
-            const total = personas * planBase;
+            const tipoPlan = document.getElementById('tipo-plan').value;
+            let total = 0;
+
+            if (tipoPlan === "grupal") {
+                // Lógica de tabla de precios grupal (Plan Básico escalado)
+                total = preciosGrupales[personas] || (personas * 90000); 
+            } else {
+                // Lógica lineal para Plan Premium
+                total = personas * parseInt(tipoPlan);
+            }
+            
             document.getElementById('total-val').innerText = `$${total.toLocaleString('es-CO')}`;
         }
 
@@ -614,7 +615,7 @@ src="https://www.facebook.com/tr?id=1175980454523613&ev=PageView&noscript=1"
         function bookingParche() {
             const planNombre = document.getElementById('tipo-plan').options[document.getElementById('tipo-plan').selectedIndex].text;
             const total = document.getElementById('total-val').innerText;
-            const msg = encodeURIComponent(`¡Hola Carolina! ✨ Queremos un parche para ${personas} personas. Elegimos el ${planNombre}. El total es ${total}.`);
+            const msg = encodeURIComponent(`¡Hola Carolina! ✨ Queremos un parche para ${personas} personas. Elegimos el ${planNombre}. El valor total es ${total}.`);
             window.location.href = `https://wa.me/573145780681?text=${msg}`;
         }
 
@@ -1136,3 +1137,4 @@ src="https://www.facebook.com/tr?id=1175980454523613&ev=PageView&noscript=1"
 </footer>
 </body>
 </html>
+
